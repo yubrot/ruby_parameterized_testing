@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "gems/parameterized_testing"
+		}
+	],
+	"settings": {}
+}

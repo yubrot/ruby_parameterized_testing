@@ -1,0 +1,33 @@
+name: Rake
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Ruby ${{ matrix.ruby }} on ${{ matrix.workdir }}
+    strategy:
+      matrix:
+        ruby:
+          - '3.3.1'
+          - '3.2.4'
+          - '3.1.5'
+        workdir:
+          - gems/parameterized_testing
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+        working-directory: ${{ matrix.workdir }}
+        bundler-cache: true
+    - name: Run the default task
+      run: bundle exec rake
+      working-directory: ${{ matrix.workdir }}
