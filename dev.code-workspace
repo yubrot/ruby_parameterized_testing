@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "gems/parameterized_testing"
+		},
+		{
+			"path": "gems/parameterized_testing-rspec"
 		}
 	],
 	"settings": {}
