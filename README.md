@@ -2,6 +2,9 @@
 
 Parameterized testing utility for Ruby.
 
+[![](https://badge.fury.io/rb/parameterized_testing.svg)](https://badge.fury.io/rb/parameterized_testing)
+[![](https://github.com/yubrot/ruby_parameterized_testing/actions/workflows/rake.yml/badge.svg)](https://github.com/yubrot/ruby_parameterized_testing/actions/workflows/rake.yml)
+
 ## Installation
 
 Add `parameterized_testing-rspec` as a dependency if you are using RSpec.
