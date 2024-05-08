@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "parameterized_testing"
 require "parameterized_testing/rspec"
 
 RSpec.configure do |config|

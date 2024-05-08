@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "parameterized_testing"
+
 require_relative "rspec/version"
 require_relative "rspec/driver"
 
