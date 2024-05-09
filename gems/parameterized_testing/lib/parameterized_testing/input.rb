@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
 module ParameterizedTesting
-  # `Input` represents a single test case for a parameterized test.
+  # {Input} represents a single test case for a parameterized test.
   class Input
-    attr_reader :index, :location, :initializer
+    # @return [Integer] index of the input
+    attr_reader :index
+    # @return [Thread::Backtrace::Location] the location of the <code>input { ... }</code> block
+    attr_reader :location
+    # @return [Proc] the block to compute the value of this input
+    attr_reader :initializer
 
-    # @param index [Integer]
-    # @param location [Thread::Backtrace::Location]
-    # @param initializer [Proc]
     def initialize(index:, location:, initializer:)
       @index = index
       @location = location
@@ -20,9 +22,9 @@ module ParameterizedTesting
       "input[#{index}] at line #{location.lineno}"
     end
 
-    # Collects all `input { ... }` in a block.
-    # It is important to notice that `#parameterized` collects inputs by actually `instance_exec`uting
-    # the block in a dedicated context in order to get the line number of input.
+    # Collects all <code>input { ... }</code> in a block.
+    # It is important to notice that this method collects inputs by actually <code>#instance_exec</code>uting
+    # the block in a dedicated context, in order to get the line number of input.
     # In this context, all other method calls are ignored.
     # @return [Array<Input>]
     def self.collect(&)
@@ -52,5 +54,6 @@ module ParameterizedTesting
         true
       end
     end
+    private_constant :Collector
   end
 end

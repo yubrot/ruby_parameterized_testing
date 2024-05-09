@@ -3,9 +3,10 @@
 module ParameterizedTesting
   module RSpec
     # The parameterized testing driver for RSpec.
-    # This module is automatically extended to `RSpec::Core::ExampleGroup`.
+    # This module is automatically extended to {RSpec::Core::ExampleGroup}.
     module Driver
       # Entry point of the parameterized testing for RSpec.
+      # See https://github.com/yubrot/ruby_parameterized_testing
       # @param params [Array<Symbol>] parameter names
       def parameterized(*params, &)
         signature = ::ParameterizedTesting::Signature.new(*params)
@@ -30,6 +31,7 @@ module ParameterizedTesting
         end
       end
 
+      # @!visibility private
       def input(...)
         raise ParameterizedTesting::RSpec::InvalidInputCallError unless @_parameterized_testing_ctx
       end
@@ -37,6 +39,7 @@ module ParameterizedTesting
   end
 end
 
+# @!visibility private
 module RSpec
   module Core
     class ExampleGroup

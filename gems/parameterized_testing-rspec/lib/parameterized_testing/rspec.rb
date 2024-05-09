@@ -9,7 +9,10 @@ module ParameterizedTesting
   module RSpec
     # Error raised when the format of the parameterized test input is incorrect.
     class InvalidInputFormatError < Exception # rubocop:disable Lint/InheritException
-      attr_reader :input, :signature
+      # @return [Input]
+      attr_reader :input
+      # @return [Signature]
+      attr_reader :signature
 
       def initialize(message = nil, input:, signature:)
         @input = input
