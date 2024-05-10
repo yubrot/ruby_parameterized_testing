@@ -7,11 +7,15 @@ Parameterized testing utility for Ruby.
 
 ## Installation
 
-Add `parameterized_testing-rspec` as a dependency if you are using RSpec.
+Add test dependency in your Gemfile.
 
 ```ruby
 group :test do
+  # For RSpec
   gem "parameterized_testing-rspec", "~> 0.1"
+
+  # For minitest/spec
+  gem "parameterized_testing-minitest-spec", "~> 0.1"
 end
 ```
 
@@ -85,9 +89,29 @@ Since each `input` is declared as a block, there are no helpers such as `ref` or
 
 [^1]: The real implementation can be seen in [driver.rb](https://github.com/yubrot/ruby_parameterized_testing/blob/main/gems/parameterized_testing-rspec/lib/parameterized_testing/rspec/driver.rb), for example.
 
-## Usage (with minitest)
+## Usage (with minitest/spec)
 
-TODO: add support
+You can use the parameterization block in the same way as in the RSpec example.
+
+```ruby
+describe "something" do
+  parameterized(:op, :result) do
+    input { [->(x, y) { x + y }, a + b] }
+    input { [->(x, y) { x * y }, a * b] }
+
+    subject { op.call(a, b) }
+
+    parameterized(:a, :b) do
+      input { [2, 3] }
+      input { [5, 7] }
+
+      it "tests something" do
+        _(subject).must_equal result
+      end
+    end
+  end
+end
+```
 
 ## Development
 
