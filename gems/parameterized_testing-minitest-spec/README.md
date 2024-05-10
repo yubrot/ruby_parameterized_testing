@@ -1,0 +1,9 @@
+# ParameterizedTesting::Minitest::Spec
+
+Parameterized testing utility for [minitest/spec](https://github.com/minitest/minitest).
+
+See [the repository root documentation](https://github.com/yubrot/ruby_parameterized_testing).
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

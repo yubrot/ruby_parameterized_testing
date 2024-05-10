@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "gems/parameterized_testing-rspec"
+		},
+		{
+			"path": "gems/parameterized_testing-minitest-spec"
 		}
 	],
 	"settings": {}

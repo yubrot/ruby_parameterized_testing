@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+# Specify your gem's dependencies in parameterized_testing-minitest.gemspec
+gemspec
+
+gem "minitest", "~> 5.0", require: false
+gem "parameterized_testing", path: "../parameterized_testing"
+gem "rake", "~> 13.0", require: false
+gem "rubocop", "~> 1.63", require: false
+gem "rubocop-minitest", "~> 0.35", require: false
