@@ -1,11 +1,11 @@
 ---
 include:
-- "**/*.rb"
+- gems/**/*.rb
 exclude:
-- spec/**/*
-- test/**/*
-- vendor/**/*
-- ".bundle/**/*"
+- gems/*/spec/**/*
+- gems/*/test/**/*
+- gems/*/vendor/**/*
+- gems/*/.bundle/**/*
 require: []
 domains: []
 reporters:
