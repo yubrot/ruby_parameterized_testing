@@ -1,14 +1,14 @@
 PATH
   remote: ../parameterized_testing
   specs:
-    parameterized_testing (0.1.1)
+    parameterized_testing (0.2.0)
 
 PATH
   remote: .
   specs:
-    parameterized_testing-minitest-spec (0.1.1)
+    parameterized_testing-minitest-spec (0.2.0)
       minitest (~> 5.0)
-      parameterized_testing (~> 0.1.1)
+      parameterized_testing (~> 0.2.0)
 
 GEM
   remote: https://rubygems.org/

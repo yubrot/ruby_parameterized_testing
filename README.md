@@ -12,10 +12,10 @@ Add test dependency in your Gemfile.
 ```ruby
 group :test do
   # For RSpec
-  gem "parameterized_testing-rspec", "~> 0.1"
+  gem "parameterized_testing-rspec", "~> 0.2"
 
   # For minitest/spec
-  gem "parameterized_testing-minitest-spec", "~> 0.1"
+  gem "parameterized_testing-minitest-spec", "~> 0.2"
 end
 ```
 
