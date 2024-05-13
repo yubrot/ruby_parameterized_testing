@@ -7,7 +7,7 @@ module ParameterizedTesting
     attr_reader :params
 
     def initialize(*params)
-      raise ArgumentError, "parameter name must be a symbol" if params.any? { !_1.is_a?(Symbol) }
+      raise TypeError, "parameter name must be a symbol" if params.any? { !_1.is_a?(Symbol) }
       raise ArgumentError, "parameter names must be unique" if params.uniq.size != params.size
 
       @params = params
