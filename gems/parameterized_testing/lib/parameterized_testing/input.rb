@@ -9,17 +9,20 @@ module ParameterizedTesting
     attr_reader :location
     # @return [Proc] the block to compute the value of this input
     attr_reader :initializer
+    # @return [String, nil] description of the input
+    attr_reader :description
 
-    def initialize(index:, location:, initializer:)
+    def initialize(index:, location:, initializer:, description:)
       @index = index
       @location = location
       @initializer = initializer
+      @description = description
     end
 
-    # Gets a human-readable label string.
+    # Returns a human-readable label string.
     # @return [String]
     def label
-      "input[#{index}] at line #{location.lineno}"
+      "#{@description || "input[#{index}]"} (at line #{location.lineno})"
     end
 
     # Collects all <code>input { ... }</code> in a block.
@@ -39,11 +42,11 @@ module ParameterizedTesting
         @next_index = 0
       end
 
-      def input(&initializer)
+      def input(description = nil, &initializer)
         index = @next_index
         @next_index += 1
         location = caller_locations(1, 1).first
-        @inputs << Input.new(index:, location:, initializer:)
+        @inputs << Input.new(index:, location:, initializer:, description:)
       end
 
       def method_missing(_name, ...)

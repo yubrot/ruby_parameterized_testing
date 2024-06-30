@@ -5,6 +5,7 @@ RSpec.describe ParameterizedTesting::Input do
     lambda do
       input { [12, 22] }
       input { { foo: 12, bar: 22 } }
+      input("negative numbers") { [-12, -2] }
 
       describe "something" do
         it "tests something" do
@@ -20,12 +21,16 @@ RSpec.describe ParameterizedTesting::Input do
     it "collects the inputs" do
       expect(subject).to match [
         have_attributes(
-          label: "input[0] at line 6",
+          label: "input[0] (at line 6)",
           initializer: have_attributes(call: [12, 22]),
         ),
         have_attributes(
-          label: "input[1] at line 7",
+          label: "input[1] (at line 7)",
           initializer: have_attributes(call: { foo: 12, bar: 22 }),
+        ),
+        have_attributes(
+          label: "negative numbers (at line 8)",
+          initializer: have_attributes(call: [-12, -2]),
         ),
       ]
     end

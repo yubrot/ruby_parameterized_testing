@@ -29,9 +29,9 @@ RSpec.describe "something" do
   # #parameterized is available in the context of RSpec ExampleGroup.
   parameterized(:a, :b, :result) do
     # Declare the concrete input corresponding to the parameters with #input.
-    input { [1, 2, 3] }                  # shorthand syntax
-    input { { a: 4, b: 5, result: 9 } }  # verbose syntax
-    input { ["foo", "bar", "foobar"] }
+    input { [1, 2, 3] }                            # shorthand syntax
+    input { { a: 4, b: 5, result: 9 } }            # verbose syntax
+    input("strings") { ["foo", "bar", "foobar"] }  # input optionally takes a description
     ...
 
     # Other than that, we can write tests in the same way as a conventional RSpec ExampleGroup.
