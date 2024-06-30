@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.3.0] - 2024-06-30
+
 - Add: `input` optionally takes a description string
 
 ## [0.2.0] - 2024-05-10
