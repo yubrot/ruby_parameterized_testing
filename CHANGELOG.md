@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [1.0.0] - 2024-11-22
+
+- Stabilize API
+
 ## [0.3.0] - 2024-06-30
 
 - Add: `input` optionally takes a description string
